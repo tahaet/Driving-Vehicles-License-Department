@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySolution.People;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -110,6 +111,12 @@ namespace MySolution
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void peopleToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmListPeople frm = new frmListPeople();
+            frm.ShowDialog();
         }
     }
 }
