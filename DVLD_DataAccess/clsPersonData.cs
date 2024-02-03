@@ -198,7 +198,7 @@ namespace DVLD_DataAccess
            short Gendor, string Address, string Phone, string Email,
             int NationalityCountryID, string ImagePath)
         {
-            //this function will return the new person id if succeeded and -1 if not.
+
             int PersonID = -1;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);

@@ -14,7 +14,7 @@ namespace MySolution.People.Controls
     public partial class ctrlPersonCardWithFilters : UserControl
     {
         public event Action<int> OnPersonSelected;
-        protected virtual void PersonSelected()
+        protected virtual void PersonSelected(int PersonID)
         {
             Action<int> handler= OnPersonSelected;
             if(handler!= null)
@@ -58,6 +58,7 @@ namespace MySolution.People.Controls
         }
         public void LoadPersonInfo(int PersonID)
         {
+            
             cbFilterBy.SelectedIndex = 1;
             txtFilterValue.Text = PersonID.ToString();
             FindNow();
@@ -70,7 +71,7 @@ namespace MySolution.People.Controls
                 case "Person ID":
                     ctrlPersonCard1.LoadPersonInfo(int.Parse(txtFilterValue.Text.Trim())); 
                     break;
-                case "National No":
+                case "National No.":
                     ctrlPersonCard1.LoadPersonInfo(txtFilterValue.Text.Trim());
                     break;
                 default:
@@ -81,6 +82,20 @@ namespace MySolution.People.Controls
                 OnPersonSelected(ctrlPersonCard1.PersonID);
             }
         }
+        
+        private void DataBackEvent(object sender, int PersonID)
+        {
+
+            cbFilterBy.SelectedIndex = 1;
+            txtFilterValue.Text = PersonID.ToString();
+            ctrlPersonCard1.LoadPersonInfo(PersonID);
+        }
+
+        public void FilterFocus()
+        {
+            txtFilterValue.Focus();
+        }
+
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -100,36 +115,9 @@ namespace MySolution.People.Controls
 
         private void btnAddNewPerson_Click(object sender, EventArgs e)
         {
-             frmAddUpdatePerson frm1 = new frmAddUpdatePerson();
-             frm1.DataBack += DataBackEvent; 
-             frm1.ShowDialog();
-        }
-
-        private void ctrlPersonCard1_Load(object sender, EventArgs e)
-        {
-            cbFilterBy.SelectedIndex = 0;
-            txtFilterValue.Focus();
-        }
-        private void DataBackEvent(object sender, int PersonID)
-        {
-
-            cbFilterBy.SelectedIndex = 1;
-            txtFilterValue.Text = PersonID.ToString();
-            ctrlPersonCard1.LoadPersonInfo(PersonID);
-        }
-        public void FilterFocus()
-        {
-            txtFilterValue.Focus();
-        }
-
-        private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(e.KeyChar == (char)13)
-            {
-                btnFind.PerformClick();
-            }
-            if (cbFilterBy.Text == "Person ID")
-                e.Handled=!char.IsDigit(e.KeyChar)&&!char.IsControl(e.KeyChar);
+            frmAddUpdatePerson frm1 = new frmAddUpdatePerson();
+            frm1.DataBack += DataBackEvent;
+            frm1.ShowDialog();
         }
 
         private void txtFilterValue_Validating(object sender, CancelEventArgs e)
@@ -141,7 +129,24 @@ namespace MySolution.People.Controls
             }
             else
                 errorProvider1.SetError(txtFilterValue, null);
-            
+        }
+
+        private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if((e.KeyChar == (char)13))
+            {
+                btnFind.PerformClick();
+            }
+
+            if (cbFilterBy.Text == "Person ID")
+                e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+
+        }
+
+        private void ctrlPersonCardWithFilters_Load(object sender, EventArgs e)
+        {
+            cbFilterBy.SelectedIndex = 0;
+            txtFilterValue.Focus();
         }
     }
 }

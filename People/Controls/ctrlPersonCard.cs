@@ -17,7 +17,8 @@ namespace MySolution.People
     public partial class ctrlPersonCard : UserControl
     {
         private clsPerson _Person;
-        private int _PersonID;
+        //particularly -1 as it is important for logic 
+        private int _PersonID=-1;
         public int PersonID
         { 
             get { return _PersonID;} 
@@ -49,6 +50,8 @@ namespace MySolution.People
         private void _FillPersonInfo()
         {
             llEditPersonInfo.Enabled = true;
+            //very necessary for logic
+            _PersonID = _Person.PersonID;
             lblPersonID.Text = _Person.PersonID.ToString();
             lblFullName.Text = _Person.FullName.ToString();
             lblDateOfBirth.Text=_Person.DateOfBirth.ToString();
@@ -76,6 +79,8 @@ namespace MySolution.People
         }
         public void LoadPersonInfo(int PersonID)
         {
+            //Necessary
+            _PersonID = PersonID;
             _Person = clsPerson.Find(PersonID);
             if (_Person == null)
             {
@@ -87,6 +92,7 @@ namespace MySolution.People
         }
         public void LoadPersonInfo(string NationalNo)
         {
+            
             _Person = clsPerson.Find(NationalNo);
             if (_Person == null)
             {
@@ -96,6 +102,7 @@ namespace MySolution.People
             }
             _FillPersonInfo();
         }
+
         private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmAddUpdatePerson frm = new frmAddUpdatePerson(_PersonID);

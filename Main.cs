@@ -1,4 +1,5 @@
 ﻿using MySolution.People;
+using MySolution.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -116,6 +117,12 @@ namespace MySolution
         private void peopleToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             frmListPeople frm = new frmListPeople();
+            frm.ShowDialog();
+        }
+
+        private void employeesToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            frmListUsers frm = new frmListUsers();
             frm.ShowDialog();
         }
     }

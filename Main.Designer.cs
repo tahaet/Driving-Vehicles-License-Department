@@ -79,7 +79,7 @@
             this.msMainMenue.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.msMainMenue.Location = new System.Drawing.Point(0, 0);
             this.msMainMenue.Name = "msMainMenue";
-            this.msMainMenue.Size = new System.Drawing.Size(1067, 96);
+            this.msMainMenue.Size = new System.Drawing.Size(1067, 72);
             this.msMainMenue.TabIndex = 8;
             this.msMainMenue.Text = "menuStrip1";
             // 
@@ -294,6 +294,7 @@
             this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
             this.employeesToolStripMenuItem.Size = new System.Drawing.Size(141, 68);
             this.employeesToolStripMenuItem.Text = "Users";
+            this.employeesToolStripMenuItem.Click += new System.EventHandler(this.employeesToolStripMenuItem_Click_1);
             // 
             // closeToolStripMenuItem
             // 

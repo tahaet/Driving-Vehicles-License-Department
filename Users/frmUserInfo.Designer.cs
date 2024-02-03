@@ -1,6 +1,6 @@
-﻿namespace MySolution.People
+﻿namespace MySolution.Users
 {
-    partial class frmShowPersonInfo
+    partial class frmUserInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,30 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlPersonCard1 = new MySolution.People.ctrlPersonCard();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.ctrlUserCard1 = new MySolution.Users.ctrlUserCard();
             this.SuspendLayout();
-            // 
-            // ctrlPersonCard1
-            // 
-            this.ctrlPersonCard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.ctrlPersonCard1.Location = new System.Drawing.Point(13, 78);
-            this.ctrlPersonCard1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
-            this.ctrlPersonCard1.Size = new System.Drawing.Size(833, 304);
-            this.ctrlPersonCard1.TabIndex = 0;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTitle.Location = new System.Drawing.Point(298, 34);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(258, 39);
-            this.lblTitle.TabIndex = 91;
-            this.lblTitle.Text = "Person Details";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnClose
             // 
@@ -59,38 +38,47 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClose.Image = global::MySolution.Properties.Resources.Close_32;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(712, 388);
+            this.btnClose.Location = new System.Drawing.Point(710, 411);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(126, 37);
-            this.btnClose.TabIndex = 90;
+            this.btnClose.TabIndex = 17;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // frmShowPersonInfo
+            // ctrlUserCard1
+            // 
+            this.ctrlUserCard1.BackColor = System.Drawing.Color.White;
+            this.ctrlUserCard1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlUserCard1.Location = new System.Drawing.Point(3, 3);
+            this.ctrlUserCard1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlUserCard1.Name = "ctrlUserCard1";
+            this.ctrlUserCard1.Size = new System.Drawing.Size(833, 398);
+            this.ctrlUserCard1.TabIndex = 18;
+            // 
+            // frmUserinfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(859, 449);
-            this.Controls.Add(this.lblTitle);
+            this.ClientSize = new System.Drawing.Size(847, 456);
+            this.Controls.Add(this.ctrlUserCard1);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.ctrlPersonCard1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "frmShowPersonInfo";
+            this.Name = "frmUserinfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmShowPersonInfo";
+            this.Text = "User Info";
+            this.Load += new System.EventHandler(this.frmUserinfo_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private ctrlPersonCard ctrlPersonCard1;
-        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnClose;
+        private ctrlUserCard ctrlUserCard1;
     }
 }
