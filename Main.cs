@@ -134,17 +134,26 @@ namespace MySolution
 
         private void currentUserInfoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-      
+            frmUserInfo frm = new frmUserInfo(clsGlobal.CurrentUser.UserID);
+            frm.ShowDialog();
         }
 
         private void changePasswordToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-
+            frmChangePassword frm=new frmChangePassword(clsGlobal.CurrentUser.UserID);
+            frm.ShowDialog();
         }
 
         private void signOutToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
+            clsGlobal.CurrentUser = null;
+            _frmLogin.Show();
+            this.Close();
+        }
 
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
