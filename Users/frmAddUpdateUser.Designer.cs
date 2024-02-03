@@ -307,6 +307,7 @@
             // 
             this.ctrlPersonCardWithFilters1.BackColor = System.Drawing.Color.White;
             this.ctrlPersonCardWithFilters1.FilterEnabled = true;
+            this.ctrlPersonCardWithFilters1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.ctrlPersonCardWithFilters1.Location = new System.Drawing.Point(0, 0);
             this.ctrlPersonCardWithFilters1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlPersonCardWithFilters1.Name = "ctrlPersonCardWithFilters1";
@@ -330,6 +331,7 @@
             this.Name = "frmAddUpdateUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add / Update User";
+            this.Activated += new System.EventHandler(this.frmAddUpdateUser_Activated);
             this.Load += new System.EventHandler(this.frmAddUpdateUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.tpPersonalInfo.ResumeLayout(false);

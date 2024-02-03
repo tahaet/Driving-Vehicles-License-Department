@@ -217,6 +217,10 @@ namespace MySolution.Users
             }
         }
 
-       
+        private void frmAddUpdateUser_Activated(object sender, EventArgs e)
+        {
+            ctrlPersonCardWithFilters1.FilterFocus();
+
+        }
     }
 }

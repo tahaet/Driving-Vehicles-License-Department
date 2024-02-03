@@ -1,4 +1,6 @@
-﻿using MySolution.People;
+﻿using MySolution.GlobalClasses;
+using MySolution.Login;
+using MySolution.People;
 using MySolution.Users;
 using System;
 using System.Collections.Generic;
@@ -14,9 +16,13 @@ namespace MySolution
 {
     public partial class frmMain : Form
     {
-        public frmMain()
+        frmLogin _frmLogin;
+
+        public frmMain(frmLogin frm)
         {
             InitializeComponent();
+            _frmLogin = frm;
+
         }
 
         private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -124,6 +130,21 @@ namespace MySolution
         {
             frmListUsers frm = new frmListUsers();
             frm.ShowDialog();
+        }
+
+        private void currentUserInfoToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+      
+        }
+
+        private void changePasswordToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void signOutToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
