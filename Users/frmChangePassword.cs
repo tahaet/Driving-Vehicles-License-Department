@@ -60,7 +60,7 @@ namespace MySolution.Users
                 errorProvider1.SetError(txtCurrentPassword, null);
             };
 
-            if (_User.Password != txtCurrentPassword.Text.Trim())
+            if (_User.Password != clsUser.HashPasswordUsingSHA256(txtCurrentPassword.Text.Trim()))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtCurrentPassword, "Current password is wrong!");
@@ -85,7 +85,7 @@ namespace MySolution.Users
             {
                 errorProvider1.SetError(txtNewPassword, null);
             };
-            if (txtNewPassword.Text.Trim() == _User.Password)
+            if (clsUser.HashPasswordUsingSHA256(txtNewPassword.Text.Trim()) == _User.Password)
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtNewPassword, "New password cann't be the same as current password");

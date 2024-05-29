@@ -13,9 +13,9 @@ namespace MySolution.People
     public partial class frmShowPersonInfo : Form
     {
         public frmShowPersonInfo(int PersonID)
-        {
-            ctrlPersonCard1.LoadPersonInfo(PersonID);
+        { 
             InitializeComponent();
+            ctrlPersonCard1.LoadPersonInfo(PersonID);
         }
         public frmShowPersonInfo(string NationalNo)
         {

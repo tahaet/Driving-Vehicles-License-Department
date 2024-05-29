@@ -27,6 +27,7 @@ namespace MySolution.Login
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+           
             clsUser User=clsUser.FindByUsernameAndPassword(txtUserName.Text.Trim(),txtPassword.Text.Trim());
             if (User != null)
             {
@@ -45,7 +46,7 @@ namespace MySolution.Login
                 }
                 clsGlobal.CurrentUser = User;
                 this.Hide();
-                frmLogin frm=new frmLogin(this);
+                frmMain frm=new frmMain(this);
                 frm.ShowDialog();
 
             }

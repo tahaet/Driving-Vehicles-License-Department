@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace DVLD_DataAccess
 {
@@ -62,7 +65,7 @@ namespace DVLD_DataAccess
             return isFound;
         }
 
-
+       
         public static bool GetUserInfoByPersonID(int PersonID, ref int UserID, ref string UserName,
           ref string Password, ref bool IsActive)
         {
@@ -457,7 +460,7 @@ namespace DVLD_DataAccess
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.AddWithValue("@UserID", UserID);
-            command.Parameters.AddWithValue("@NewPassword", NewPassword);
+            command.Parameters.AddWithValue("@Password", NewPassword);
 
             try
             {

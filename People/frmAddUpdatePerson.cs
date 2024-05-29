@@ -288,5 +288,11 @@ namespace MySolution.People
             if (_Mode == enMode.Update)
                 _LoadData();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+        }
     }
 }

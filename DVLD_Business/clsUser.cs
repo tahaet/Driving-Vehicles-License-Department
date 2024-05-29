@@ -1,13 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
+using System.Text;
 using DVLD_DataAccess;
 
 namespace DVLD_Buisness
 {
     public class clsUser
     {
+        private string _Password;
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
 
@@ -15,7 +20,16 @@ namespace DVLD_Buisness
         public int PersonID { set; get; }
         public clsPerson PersonInfo;
         public string UserName { set; get; }
-        public string Password { set; get; }
+        public string Password {
+            set
+            { 
+                _Password = value; 
+            }
+            get 
+            {
+                return _Password; 
+            }
+        }
         public bool IsActive { set; get; }
 
         public clsUser()
@@ -26,8 +40,47 @@ namespace DVLD_Buisness
             this.Password = "";
             this.IsActive = true;
             Mode = enMode.AddNew;
-        }
+            
 
+        }
+        public static bool UpdateAllPasswords()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+
+
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    string query = @"Select * from Users";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+
+                            {
+                                dt.Load(reader);
+                            }
+                        }
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+
+
+                clsUserData.ChangePassword((int)dt.Rows[i]["UserID"], HashPasswordUsingSHA256(dt.Rows[i]["Password"].ToString()));
+            }
+
+            return true;
+        }
         private clsUser(int UserID, int PersonID, string Username, string Password,
             bool IsActive)
 
@@ -46,7 +99,7 @@ namespace DVLD_Buisness
         {
 
             this.UserID = clsUserData.AddNewUser(this.PersonID, this.UserName,
-                this.Password, this.IsActive);
+               HashPasswordUsingSHA256(this.Password), this.IsActive);
 
             return (this.UserID != -1);
         }
@@ -54,7 +107,16 @@ namespace DVLD_Buisness
         {
 
             return clsUserData.UpdateUser(this.UserID, this.PersonID, this.UserName,
-                this.Password, this.IsActive);
+                HashPasswordUsingSHA256(this.Password), this.IsActive);
+        }
+
+        public static string HashPasswordUsingSHA256(string Password)
+        {
+            using (SHA256 sh = SHA256.Create())
+            {
+                byte[] hashBytes = sh.ComputeHash(Encoding.UTF8.GetBytes(Password));
+                return BitConverter.ToString(hashBytes).Replace("-", "");
+            }
         }
         public static clsUser FindByUserID(int UserID)
         {
@@ -94,7 +156,8 @@ namespace DVLD_Buisness
             bool IsActive = false;
 
             bool IsFound = clsUserData.GetUserInfoByUsernameAndPassword
-                                (UserName, Password, ref UserID, ref PersonID, ref IsActive);
+                                (UserName,HashPasswordUsingSHA256(Password), ref UserID, ref PersonID, ref IsActive);
+
 
             if (IsFound)
 
@@ -157,6 +220,7 @@ namespace DVLD_Buisness
         {
             return clsUserData.ChangePassword(this.UserID,this.Password);
         }
+
 
     }
 }

@@ -37,7 +37,7 @@ namespace DVLD.Classes
             return regex.IsMatch(Number);
         }
 
-        public static bool IsNumber(string Number)
+       public static bool IsNumber(string Number)
         {
             return (ValidateInteger(Number) || ValidateFloat(Number));
         }

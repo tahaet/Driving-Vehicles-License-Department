@@ -6,30 +6,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
+using System.Diagnostics;
+using Microsoft.Win32;
 
 namespace MySolution.GlobalClasses
 {
     public class clsGlobal
     {
+        private const string valueName = "DVLDUserCredintials";
+        private const string keyPath = @"HKEY_CURRENT_USER\SOFTWARE\DVLDUserCredintials";
+
         public static clsUser CurrentUser;
 
         public static bool RememberUserNameAndPassword(string UserName,string Password)
         {
+            string value = $"{UserName}#//#{Password}";
             try
             {
-                string currentDirectory = Directory.GetCurrentDirectory();
-                string FilePath = string.Format("{0}{1}", currentDirectory, "//Data.txt");
-                if (UserName == "" && File.Exists(FilePath))
-                {
-                    File.Delete(FilePath);
-                    return true;
-                }
-                string DataToSave = string.Format("{0}#//#{1}", UserName, Password);
-                using(StreamWriter Writer = new StreamWriter(FilePath))
-                {
-                    Writer.WriteLine(DataToSave);
-                    return true;
-                }
+                Registry.SetValue(keyPath, valueName, value, RegistryValueKind.String);
+                return true;
             }
             catch (Exception ex) 
             {
@@ -41,26 +36,19 @@ namespace MySolution.GlobalClasses
         {
             try
             {
-                string currentDirectory = Directory.GetCurrentDirectory();
-                string FilePath = string.Format("{0}{1}", currentDirectory, "//Data.txt");
-                if (File.Exists(FilePath))
+              
+                string value=Registry.GetValue(keyPath, valueName,null) as string;
+                
+                if (value != null)
                 {
-                    using (StreamReader Reader = new StreamReader(FilePath))
-                    {
-                        string Line = "";
-                        while ((Line = Reader.ReadLine()) != null)
-                        {
-                            Console.WriteLine(Line);
-                            string[] result = Line.Split(new string[] { "#//#" }, StringSplitOptions.None);
-                            UserName = result[0];
-                            Password = result[1];
-                        }
-                        return true;
-                    }
-
+                    string[] result = value.Split(new string[]{"#//#"},StringSplitOptions.None);
+                    UserName= result[0];
+                    Password= result[1];
+                    return true;
                 }
                 else
                     return false;
+                
             }
             catch(Exception ex)
             {
@@ -69,5 +57,6 @@ namespace MySolution.GlobalClasses
             }
 
         }
+        
     }
 }
