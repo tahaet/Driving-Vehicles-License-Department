@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "G:\\MyFirstWinFormsProject\\Projects\\Solution\\DVLD\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{9DE91161-2773-4C79-AC48-3CE603D07A5E}|DVLD\\DVLD.csproj|g:\\myfirstwinformsproject\\projects\\solution\\dvld\\dvld\\people\\frmaddupdateperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9DE91161-2773-4C79-AC48-3CE603D07A5E}|DVLD\\DVLD.csproj|solutionrelative:dvld\\people\\frmaddupdateperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9DE91161-2773-4C79-AC48-3CE603D07A5E}|DVLD\\DVLD.csproj|g:\\myfirstwinformsproject\\projects\\solution\\dvld\\dvld\\people\\frmaddupdateperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9DE91161-2773-4C79-AC48-3CE603D07A5E}|DVLD\\DVLD.csproj|solutionrelative:dvld\\people\\frmaddupdateperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,31 +22,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmAddUpdatePerson.cs",
-              "DocumentMoniker": "G:\\MyFirstWinFormsProject\\Projects\\Solution\\DVLD\\DVLD\\People\\frmAddUpdatePerson.cs",
-              "RelativeDocumentMoniker": "DVLD\\People\\frmAddUpdatePerson.cs",
-              "ToolTip": "G:\\MyFirstWinFormsProject\\Projects\\Solution\\DVLD\\DVLD\\People\\frmAddUpdatePerson.cs",
-              "RelativeToolTip": "DVLD\\People\\frmAddUpdatePerson.cs",
-              "ViewState": "AQIAAKMAAACAZmZmZmYwwBEBAABkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-29T12:07:43.486Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmAddUpdatePerson.cs [Design]",
-              "DocumentMoniker": "G:\\MyFirstWinFormsProject\\Projects\\Solution\\DVLD\\DVLD\\People\\frmAddUpdatePerson.cs",
-              "RelativeDocumentMoniker": "DVLD\\People\\frmAddUpdatePerson.cs",
-              "ToolTip": "G:\\MyFirstWinFormsProject\\Projects\\Solution\\DVLD\\DVLD\\People\\frmAddUpdatePerson.cs [Design]",
-              "RelativeToolTip": "DVLD\\People\\frmAddUpdatePerson.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-29T12:07:43.158Z",
-              "EditorCaption": " [Design]"
             }
           ]
         }
