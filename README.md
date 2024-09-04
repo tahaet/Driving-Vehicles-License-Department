@@ -1,6 +1,6 @@
 # Driving and Vehicles License Department Application
 
-This WinForms application is designed for managing driving and vehicle licenses within a department. It is developed using C# .NET Framework 4.8 and utilizes SQL Server for data storage. ADO.NET is employed for database connectivity.
+WinForms application designed for managing vehicle licenses issuing and maintaining. It is developed using C# .NET Framework 4.8 and utilizes SQL Server for data storage and ADO.NET for database connectivity.
 
 ## Features
 
